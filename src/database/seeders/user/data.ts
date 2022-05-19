@@ -1,6 +1,13 @@
 import { User } from '../../../modules/users/interfaces/user.interface';
 import faker from '@faker-js/faker/locale/ru';
 
+function getGender(): string {
+  const gender = ['male', 'female'];
+  const rand = Math.floor(Math.random() * gender.length);
+
+  return gender[rand];
+}
+
 export const users: User[] = [
   {
     snils: '' + Math.floor(Math.random() * 100000000000),
@@ -9,7 +16,7 @@ export const users: User[] = [
     firstName: faker.name.firstName(),
     lastName: faker.name.lastName(),
     patronymic: faker.name.middleName(),
-    gender: faker.name.gender(),
+    gender: getGender(),
     dateOfBirth: '' + faker.date.between('1960-01-01', '2022-01-01'),
     city: faker.address.city(),
     street: faker.address.streetAddress(),

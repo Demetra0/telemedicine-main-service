@@ -11,11 +11,8 @@ import { Patient } from '../patients/entities/patient.entity';
 @Module({
   controllers: [UsersController],
   providers: [UsersService],
-  imports: [
-    SequelizeModule.forFeature([User, Doctor, Patient]),
-    DoctorsModule,
-    PatientsModule,
-  ],
+  imports: [SequelizeModule.forFeature([User])],
   exports: [UsersService],
 })
-export class UsersModule {}
+export class UsersModule {
+}
